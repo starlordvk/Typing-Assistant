@@ -1,0 +1,153 @@
+//Set up some color variables
+$darkgray: #53565a;
+$midgray: #888b8d;
+$lightgray: #a7a8aa;
+$yellow: #ffd100;
+
+//Lots of stuff be flexin'
+@mixin flexy {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	        justify-content: center;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	        align-items: center;
+	-ms-flex-line-pack: center;
+	    align-content: center;
+	-ms-flex-wrap: wrap;
+	    flex-wrap: wrap;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	//Change this font-size value to resize the keyboard!
+	font-size: 8px;
+	@include flexy;
+	width: 100%;
+	margin: 0;
+	box-sizing: border-box;
+	font-family: Quicksand;
+	height: 100vh;
+	max-height: 100vh;
+	overflow: hidden;
+	
+	//The keyboard containing div and all key elements
+	#keyboard, kbd {
+		@include flexy;
+		box-sizing: border-box;
+		border-radius: 4px;
+		background: #ccc;
+		border: .2em solid $midgray;
+		text-align: center;
+		font-family: Quicksand;
+	}
+	
+	kbd {
+		flex: 1;
+	}
+	
+	.keyboard-row {
+		@include flexy;
+		width: 100%;
+	}
+	
+	//The box the typed text appears in
+	div#text {
+		@include flexy;
+		align-items: flex-end;
+		width: 20em;
+		height: 44vh;
+		max-height: 44vh;
+		font-size: 3em;
+		margin-bottom: 4vh;
+		text-align: center;
+		overflow: auto;
+		align-self: flex-end;
+		position: relative;
+	}
+	
+	//The div containing the keys
+	#keyboard {
+		width: 56em;
+		padding: .4em .4em .8em;
+		box-shadow: 0 .4em 0 $midgray;
+		
+		//The elements that make up the keys themselves
+		kbd {
+			line-height: 3.2em;
+			height: 3.2em;
+			width: 3.2em;
+			margin: .25em;
+			text-align: center;
+			color: #fff;
+			background-color: $darkgray;
+			transition: background, position, top, box-shadow .1s;
+			box-shadow: 0px 2px 0px $midgray;
+		}
+
+		//For slightly wider keys
+		kbd.long {
+			flex-grow: 1;
+			flex: 2;
+		}
+
+		//For much wider keys
+		kbd.longer {
+			flex-grow: 2;
+			flex: 3;
+		}
+		
+		//For the widest key
+		kbd.spacebar {
+			flex-grow: 14;
+			flex: 6;
+		}
+		
+		//Keep the keys that aren't letters, numbers and punctuation from going to uppercase when shift or capslock is pressed
+		.operationKey {
+			text-transform: none!important;
+		}
+
+		//Styles applied to a currently-pressed key
+		.pressed {
+			background: $yellow;
+			position: relative;
+			top: 2px;
+			box-shadow: none;
+		}
+	//Applied to the whole keyboard when shift or capslock is pressed
+	}
+	pre {
+		height: 3vh;
+		line-height: 3vh;
+	}
+	.uppercase kbd {
+		text-transform: uppercase;
+	}
+}
+
+
+//Make keyboard responsive, kinda
+@media (min-width: 768px) {
+	body {
+		font-size: 10px;
+	}
+}
+
+@media (min-width: 960px) {
+	body {
+		font-size: 12px;
+	}
+}
+
+@media (min-width: 1080px) {
+	body {
+		font-size: 14px;
+	}
+}
