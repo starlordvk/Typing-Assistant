@@ -7,11 +7,11 @@ Typing Assistant provides the ability to autocomplete words and suggests predict
 
 Typing Assistant provides the ability to autocomplete words and suggests predictions for the next word. This makes typing faster, more intelligent and reduces effort. The implementation involves using a large corpus. The methods used by us are as follows:
 
-## .A. **Counting words in Corpora:**
+## A. **Counting words in Corpora:**
 
 Counting of things in NLP is based on a corpus. NLTK (Natural Language Toolkit) provides a diverse set of corpora. For our project we&#39;ll be using the Brown corpus. The Brown corpus is a 1-million-word collection of samples from 500 written texts from different genres (newspaper, novels, non-fiction etc.). There are tasks such as spelling error detection, word prediction for which the location of the punctuation is important. Our application counts punctuation as words.
 
-## .B. **N-Grams Model:**
+## B. **N-Grams Model:**
 
 Probabilistic models are used for computing the probability of an entire sentence or for giving a probabilistic prediction of what the next word will be in a sequence. This model involves looking at the conditional probability of a word given the previous words.
 
@@ -23,7 +23,7 @@ We can use the chain rule of probability to decompose this probability:
 
 <img src="./images/image1.png">
 
-## .C. **Bigram Model:**
+## C. **Bigram Model:**
 
 In this model we approximate the probability of a word given all the previous words by the conditional probability of the preceding word.
 
@@ -37,11 +37,11 @@ To calculate the probability, from this corpus we take the count of a particular
 
 <img src="./images/image6.png">
 
-## .D. **Trigram Model:**
+## D. **Trigram Model:**
 
 A trigrammodel looks just the same as a bigram model, except that we condition on the two-previous words.
 
-## .E. **Minimum Edit Distance:**
+## E. **Minimum Edit Distance:**
 
 The distance between two strings is a measure of how alike two strings are to each other. The minimum edit distance between two strings is the minimum number of editing operations (insertion, deletion, substitution) needed to transform one string into another.
 
